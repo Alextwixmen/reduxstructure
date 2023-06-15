@@ -1,39 +1,38 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { selectActiveFilter } from '../store/filters/filter-selector';
-import { setFilter } from '../store/filters/filters-actions';
+import { Link, useParams } from 'react-router-dom';
 const Filters = () => {
-  const dispatch = useDispatch();
-  const activeFilter = useSelector(selectActiveFilter);
+  // const activeFilter = useSelector(selectActiveFilter);
+  const { filter: activeFilter = 'all' } = useParams();
   return (
-    <div>
-      <button
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+      <Link
         // dispatch({type: SET_FILTER, filter: all})
-        onClick={() => dispatch(setFilter('all'))}
+        to={'/all'}
         style={{ color: activeFilter === 'all' ? 'red' : 'black' }}
       >
         all
-      </button>
-      <button
+      </Link>
+      <Link
         // dispatch({type: SET_FILTER, filter: active})
-        onClick={() => dispatch(setFilter('active'))}
+        to={'/active'}
         style={{ color: activeFilter === 'active' ? 'red' : 'black' }}
       >
         active
-      </button>
-      <button
+      </Link>
+      <Link
         // dispatch({type: SET_FILTER, filter: completed})
-        onClick={() => dispatch(setFilter('completed'))}
+        to={'/completed'}
         style={{ color: activeFilter === 'completed' ? 'red' : 'black' }}
       >
         completed
-      </button>
-      <button
+      </Link>
+      <Link
         // dispatch({type: SET_FILTER, filter: morethanfive})
-        onClick={() => dispatch(setFilter('morethanfive'))}
+        to={'/morethanfive'}
         style={{ color: activeFilter === 'morethanfive' ? 'red' : 'black' }}
       >
         morethanfive
-      </button>
+      </Link>
     </div>
   );
 };
