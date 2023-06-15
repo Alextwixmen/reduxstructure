@@ -27,6 +27,13 @@ const Filters = () => {
       >
         completed
       </button>
+      <button
+        // dispatch({type: SET_FILTER, filter: morethanfive})
+        onClick={() => dispatch(setFilter('morethanfive'))}
+        style={{ color: activeFilter === 'morethanfive' ? 'red' : 'black' }}
+      >
+        morethanfive
+      </button>
     </div>
   );
 };

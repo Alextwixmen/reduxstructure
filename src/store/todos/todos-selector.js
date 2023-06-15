@@ -16,7 +16,9 @@ export const selectVisibleTodos = (state, filter) => {
     case 'completed': {
       return state.todos.filter((todo) => todo.completed);
     }
-
+    case 'morethanfive': {
+      return state.todos.filter((todo) => Number(todo.title) > 5);
+    }
     default: {
       return state.todos;
     }
